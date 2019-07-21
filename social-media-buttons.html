@@ -7,50 +7,73 @@
   <title>Social media buttons</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css">
   <style>
-    .container {
-      padding: 5px;
-      width: 250px;
-      margin: 25vw auto;
+    body {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
     }
     .flex-center {
-      display: flex;
+      display: inline-flex;
       justify-content: center;
       align-items: center;
     }
+    .social-media-container {
+      padding: 0.5vh;
+      border-radius: 0 1vh 1vh 0;
+      background-color: #E1D9D9;
+      transition: width 0.2s;
+      position: absolute;
+      top: 25%;
+      flex-direction: column;
+    }
     .social-media {
-      height: 50px;
-      width: 50px;
-      border-radius: 25px;
-      margin: 0 5px;
+      height: 5vh;
+      width: 5vh;
+      border-radius: 50%;
+      margin: 0.5vh 0;
       color: white;
+      transition: transform 0.2s, margin 0.2s;
+      transition-timing-function: ease-in-out;
     }
-    .social-media-instagram {
-      background-color: #e1306c;
-    }
-    .social-media-github {
-      background-color: #333;
-    }
-    .social-media-linkedin {
-      background-color: #00a0dc;
+    .social-media:hover {
+      transform-origin: center left;
+      transform: scale(1.5);
+      margin: 2vh 0;
     }
     .social-media-facebook {
       background-color: #3b5998;
     }
+    .social-media-instagram {
+      background-color: #e1306c;
+    }
+    .social-media-twitter {
+      background-color: #1da1f2;
+    }
+    .social-media-linkedin {
+      background-color: #00a0dc;
+    }
+    .social-media-github {
+      background-color: #333;
+    }
   </style>
 </head>
 <body>
-  <div class="container flex-center">
-    <div class="social-media social-media-facebook flex-center">
-      <i class="fab fa-facebook-f fa-2x"></i>
+  <div class="flex-center social-media-container">
+    <div class="flex-center social-media social-media-facebook">
+      <i class="fab fa-facebook-f"></i>
     </div>
-    <div class="social-media social-media-instagram flex-center">
-      <i class="fab fa-instagram fa-2x"></i>
+    <div class="flex-center social-media social-media-instagram">
+      <i class="fab fa-instagram"></i>
     </div>
-    <div class="social-media social-media-linkedin flex-center">
-      <i class="fab fa-linkedin fa-2x"></i>
+    <div class="flex-center social-media social-media-twitter">
+      <i class="fab fa-twitter"></i>
     </div>
-    <div class="social-media social-media-github flex-center">
-      <i class="fab fa-github fa-2x"></i>
+    <div class="flex-center social-media social-media-linkedin">
+      <i class="fab fa-linkedin"></i>
+    </div>
+    <div class="flex-center social-media social-media-github">
+      <i class="fab fa-github"></i>
     </div>
   </div>
 </body>
