@@ -1,80 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Social media buttons</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      width: 100vw;
-      height: 100vh;
-      position: relative;
-    }
-    .flex-center {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .social-media-container {
-      padding: 0.5vh;
-      border-radius: 0 1vh 1vh 0;
-      background-color: #E1D9D9;
-      transition: width 0.2s;
-      position: absolute;
-      top: 25%;
-      flex-direction: column;
-    }
-    .social-media {
-      height: 5vh;
-      width: 5vh;
-      border-radius: 50%;
-      margin: 0.5vh 0;
-      color: white;
-      transition: transform 0.2s, margin 0.2s;
-      transition-timing-function: ease-in-out;
-    }
-    .social-media:hover {
-      transform-origin: center left;
-      transform: scale(1.5);
-      margin: 2vh 0;
-    }
-    .social-media-facebook {
-      background-color: #3b5998;
-    }
-    .social-media-instagram {
-      background-color: #e1306c;
-    }
-    .social-media-twitter {
-      background-color: #1da1f2;
-    }
-    .social-media-linkedin {
-      background-color: #00a0dc;
-    }
-    .social-media-github {
-      background-color: #333;
-    }
-  </style>
-</head>
-<body>
-  <div class="flex-center social-media-container">
-    <div class="flex-center social-media social-media-facebook">
-      <i class="fab fa-facebook-f"></i>
-    </div>
-    <div class="flex-center social-media social-media-instagram">
-      <i class="fab fa-instagram"></i>
-    </div>
-    <div class="flex-center social-media social-media-twitter">
-      <i class="fab fa-twitter"></i>
-    </div>
-    <div class="flex-center social-media social-media-linkedin">
-      <i class="fab fa-linkedin"></i>
-    </div>
-    <div class="flex-center social-media social-media-github">
-      <i class="fab fa-github"></i>
-    </div>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Social media buttons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.min.css">
+    <style>
+      body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+      }
+      .flex-center {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .social-media-container {
+        padding: 0.5vh;
+        margin: 0;
+        border-radius: 0 1vh 1vh 0;
+        background-color: #E1D9D9;
+        transition: width 0.2s;
+        position: fixed;
+        top: 35%;
+        left: 0;
+        flex-direction: column;
+        list-style: none;
+      }
+      a.social-media {
+        position: relative;
+        height: 5vh;
+        width: 5vh;
+        border-radius: 50%;
+        margin: 0.5vh 0;
+        cursor: pointer;
+        transition: transform 0.2s, margin 0.2s;
+        transition-timing-function: ease-in-out;
+        text-decoration: none;
+        color: white;
+      }
+      .social-media span{
+        display: none;
+        color: initial;
+      }
+      .social-media:hover {
+        transform-origin: center left;
+        transform: scale(1.5);
+        margin: 2vh 0;
+      }
+      .social-media:hover span {
+        display: inline-block;
+        position: absolute;
+        font-size: 0.7em;
+        font-family: monospace;
+        left: 6vh;
+        padding: 0 0.4em;
+        background-color: #E1D9D9;
+        border-radius: 0.1em;
+      }
+      .social-media-facebook {
+        background-color: #3b5998;
+      }
+      .social-media-instagram {
+        background-color: #e1306c;
+      }
+      .social-media-twitter {
+        background-color: #1da1f2;
+      }
+      .social-media-linkedin {
+        background-color: #00a0dc;
+      }
+      .social-media-github {
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body class="flex-center">
+    <header>
+      <h1>Weekly Coding Challenge #18 - Social Media Buttons</h1>
+    </header>
+    <main>
+      <a href="https://www.florin-pop.com/blog/2019/03/weekly-coding-challenge/" target="_blank">
+        About this challenge
+      </a>
+    </main>
+    <section>
+      <ul class="flex-center social-media-container">
+        <li>
+          <a class="flex-center social-media social-media-facebook" href="http://facebook.com" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+            <span class="helper">Facebook</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex-center social-media social-media-instagram" href="http://instagram.com" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span class="helper">Instagram</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex-center social-media social-media-twitter" href="http://twitter.com" target="_blank">
+            <i class="fab fa-twitter"></i>
+            <span class="helper">Twitter</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex-center social-media social-media-linkedin" href="http://linkedin.com" target="_blank">
+            <i class="fab fa-linkedin"></i>
+            <span class="helper">LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a class="flex-center social-media social-media-github" href="http://github.com" target="_blank">
+            <i class="fab fa-github"></i>
+            <span class="helper">Github</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </body>
 </html>
