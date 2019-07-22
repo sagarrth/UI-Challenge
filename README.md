@@ -1,1 +1,1 @@
-A collection of Daily UI Challenges from Florin Pop <https://dev.to/florinpop17>
+A collection of Weekly UI Challenges from Florin Pop <https://dev.to/florinpop17>
