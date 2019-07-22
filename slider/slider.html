@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slider</title>
+    <style>
+      body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+      }
+      .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slider-container {
+        height: 50vh;
+        width: 50vw;
+        border-radius: 1vh;
+        border: solid 0.5vh;
+        position: relative;
+      }
+      .slider-container::before, .slider-container::after {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        font-size: 1.5em;
+        opacity: 0.8;
+        cursor: pointer;
+      }
+      .slider-container::before {
+        content: '\25C0';
+        left: 0;
+      }
+      .slider-container::after {
+        content: '\25B6';
+        right:0;
+      }
+      .slider-item {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body class="flex-center">
+    <header>
+      <h1>Weekly Coding Challenge #2 - Slider</h1>
+    </header>
+    <main>
+      <a href="https://dev.to/florinpop17/weekly-coding-challenge---week-2---slider-1329/" target="_blank">
+        About this challenge
+      </a>
+    </main>
+    <section>
+      <div class="slider-container">
+        <img src="fixie.jpg" alt="Oops" class="slider-item">
+      </div>
+    </section>
+  </body>
+</html>
