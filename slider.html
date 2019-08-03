@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slider</title>
+    <style>
+      body {
+        margin: 0;
+        color: rgba(245,245,245,0.8);
+        font-family: 'Courier New', Courier, monospace;
+      }
+      header, #about {
+        position: absolute;
+        z-index: 9;
+      }
+      #about {
+        top: 55vh;
+        transition: font-weight 500ms ease;
+      }
+      #about > a {
+        color: inherit;
+      }
+      #about:hover {
+        font-weight: bold;
+      }
+      .flex-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .slider-container {
+        height: 100vh;
+        width: 100vw;
+      }
+      .slider-container .controls {
+        width: 95%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .controls div {
+        height: 2em;
+        width: 2em;
+        cursor: pointer;
+        border-style: solid;
+        border-width: 0 0 0.1em 0.1em;
+        transition: border-width 150ms ease;
+      }
+      .controls div.left {
+        transform: rotate(45deg);
+      }
+      .controls div.right {
+        transform: rotate(-135deg);
+      }
+      .controls div:hover {
+        border-width: 0 0 0.3em 0.3em;
+      }
+      .slider-item {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        transition: opacity 2s ease;
+      }
+    </style>
+  </head>
+  <body class="flex-center">
+    <header>
+      <h1>Weekly Coding Challenge #2 - Slider</h1>
+    </header>
+    <section id="about">
+      <a href="https://dev.to/florinpop17/weekly-coding-challenge---week-2---slider-1329/" target="_blank">
+        About this challenge
+      </a>
+    </section>
+    <main>
+      <div class="slider-container flex-center">
+        <div class="controls flex-center">
+          <div class="left" data-direction="left" onclick="slideImage(-1)"></div>
+          <div class="right" data-direction="right" onclick="slideImage(1)"></div>
+        </div>
+      </div>
+    </main>
+    <script>
+      const slider = document.querySelector('.slider-container');
+      const images = [
+        'https://images.unsplash.com/photo-1534787238916-9ba6764efd4f', 
+        'https://images.unsplash.com/photo-1471506480208-91b3a4cc78be',
+        'https://images.unsplash.com/photo-1530143584546-02191bc84eb5'
+      ];
+
+      let currActiv = 0;
+
+      images.forEach((i, ind) => {
+        const img = document.createElement('img');
+        img.classList.add('slider-item');
+        img.setAttribute('alt', 'oops...');
+        img.setAttribute('src', i);
+        ind !== images.length - 1 && (img.style.opacity = 0);
+        slider.prepend(img);
+      });
+
+      const sliderItems = document.querySelectorAll('.slider-item');
+
+      function slideImage(dirVal) {
+        currActiv += dirVal;
+        currActiv  = currActiv < 0 ? images.length - 1 : (currActiv >= images.length ? 0 : currActiv);
+        sliderItems.forEach((e, ind) => {
+          ind !== currActiv && (e.style.opacity=0);
+          ind === currActiv && (e.style.opacity=1);
+        });
+      }
+
+    </script>
+  </body>
+</html>
