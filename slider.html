@@ -34,6 +34,9 @@
       .slider-container {
         height: 100vh;
         width: 100vw;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: background-image 500ms ease;
       }
       .slider-container .controls {
         width: 95%;
@@ -57,12 +60,6 @@
       .controls div:hover {
         border-width: 0 0 0.3em 0.3em;
       }
-      .slider-item {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        transition: opacity 2s ease;
-      }
     </style>
   </head>
   <body class="flex-center">
@@ -85,33 +82,27 @@
     <script>
       const slider = document.querySelector('.slider-container');
       const images = [
-        'https://images.unsplash.com/photo-1534787238916-9ba6764efd4f', 
+        'https://images.unsplash.com/photo-1517649763962-0c623066013b', 
         'https://images.unsplash.com/photo-1471506480208-91b3a4cc78be',
         'https://images.unsplash.com/photo-1530143584546-02191bc84eb5'
       ];
+      imgPos = 0;
+      slider.style.backgroundImage = `url(${images[imgPos]})`;
 
-      let currActiv = 0;
+      const imgLen = images.length;
 
-      images.forEach((i, ind) => {
-        const img = document.createElement('img');
-        img.classList.add('slider-item');
-        img.setAttribute('alt', 'oops...');
-        img.setAttribute('src', i);
-        ind !== images.length - 1 && (img.style.opacity = 0);
-        slider.prepend(img);
-      });
+      function slideImage(direction) {
+        switch (direction) {
+          case 1:
+            imgPos = imgPos + 1 >= imgLen ? 0 : imgPos + 1;
+            break;
+          case -1:
+            imgPos = imgPos - 1 < 0 ? imgLen - 1 : imgPos - 1;
+            break;
+        }
 
-      const sliderItems = document.querySelectorAll('.slider-item');
-
-      function slideImage(dirVal) {
-        currActiv += dirVal;
-        currActiv  = currActiv < 0 ? images.length - 1 : (currActiv >= images.length ? 0 : currActiv);
-        sliderItems.forEach((e, ind) => {
-          ind !== currActiv && (e.style.opacity=0);
-          ind === currActiv && (e.style.opacity=1);
-        });
+        slider.style.backgroundImage = `url(${images[imgPos]})`;
       }
-
     </script>
   </body>
 </html>
